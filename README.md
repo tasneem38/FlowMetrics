@@ -15,7 +15,7 @@ This project is designed as a **Webflow Developer Internship showcase**, highlig
 
 ## 🌐 Live Demo
 
-👉 [Live Website Link Here](https://your-deployed-link.vercel.app)
+👉 [Live Website Link Here](https://flow-metrics-alpha.vercel.app/)
 
 ---
 
@@ -144,8 +144,8 @@ It is intentionally structured to reflect how a Webflow CMS project would be org
 Computer Science Engineering Student  
 Frontend & UI Developer  
 
-GitHub: [https://github.com/yourusername](https://github.com/yourusername)  
-Portfolio: [https://yourportfolio.com](https://yourportfolio.com)  
+GitHub: [https://github.com/tasneem38](https://github.com/tasneem38)  
+Portfolio: [https://tasneem-banu-portfolio.vercel.app/](https://tasneem-banu-portfolio.vercel.app/)  
 
 ---
 
