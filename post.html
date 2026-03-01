@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Post — FlowMetrics</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="navWrap">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <span class="brandMark"></span>
+          <span>FlowMetrics</span>
+        </a>
+
+        <nav class="navLinks">
+          <a href="index.html#features">Features</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+
+        <div class="navActions">
+          <a class="btn" href="blog.html">All Posts</a>
+          <a class="btn primary" href="index.html#cta">Get Started</a>
+          <button class="burger" id="burger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobileMenu" id="mobileMenu">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#cta">Get Started</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="postWrap">
+    <div class="container">
+      <div class="breadcrumb reveal"><a href="blog.html">← Back to Blog</a></div>
+
+      <div class="postHeader reveal" id="postHeader">
+        <!-- Filled by JS -->
+      </div>
+
+      <div class="postContent reveal" id="postContent">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footerGrid">
+        <div>
+          <div class="brand" style="color:#fff;">
+            <span class="brandMark"></span>
+            <span>FlowMetrics</span>
+          </div>
+          <p>Demo post template page.</p>
+          <small>© 2026 FlowMetrics. Demo showcase site.</small>
+        </div>
+
+        <div>
+          <h4>Links</h4>
+          <a href="index.html">Home</a><br />
+          <a href="blog.html">Blog</a><br />
+          <a href="index.html#pricing">Pricing</a>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:hello@flowmetrics.demo">hello@flowmetrics.demo</a><br />
+          <a href="index.html#top">Back to top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+
+    const posts = window.BLOG_POSTS || [];
+    const post = posts.find(p => p.id === id) || posts[0];
+
+    const formatDate = (iso) => {
+      const d = new Date(iso);
+      return d.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    };
+
+    document.title = `${post.title} — FlowMetrics`;
+
+    const header = document.getElementById("postHeader");
+    header.innerHTML = `
+    <div class="postThumb" 
+         style="background-image:url('${post.cover}');
+                background-size:cover;
+                background-position:center;
+                height:260px;
+                border-radius:20px;
+                margin-bottom:20px;">
+    </div>
+
+    <div class="meta">
+      ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+      <span>${formatDate(post.date)}</span>
+      <span>•</span>
+      <span>${post.author}</span>
+    </div>
+
+    <h1>${post.title}</h1>
+    <p style="color:var(--slate);">${post.excerpt}</p>
+  `;
+
+    const content = document.getElementById("postContent");
+    content.innerHTML = post.content;
+  </script>
+</body>
+
+</html>
